@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Realizacje Werka Bramy — zdjęcia wykonanych bram przesuwnych i dwuskrzydłowych, furtek, ogrodzeń oraz elementów stalowych.">
+  <meta name="theme-color" content="#0b0d0d">
+  <meta property="og:title" content="Realizacje | Werka Bramy">
+  <meta property="og:image" content="dwuskrzydlowa-10.webp">
+  <title>Realizacje | Werka Bramy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="realizacje">
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html" aria-label="Werka Bramy — strona główna"><img src="logo.png" alt="Werka Bramy"></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Otwórz menu"><span></span><span></span></button>
+    <nav class="main-nav" id="mainNav" aria-label="Główna nawigacja">
+      <a href="index.html" data-nav="start">Start</a><a href="oferta.html" data-nav="oferta">Oferta</a><a href="realizacje.html" data-nav="realizacje">Realizacje</a><a href="kontakt.html" data-nav="kontakt">Kontakt</a><a class="nav-cta" href="kontakt.html">Bezpłatna wycena <span>↗</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="sub-hero gallery-hero">
+      <img src="dwuskrzydlowa-10.webp" alt="Realizacja nowoczesnej bramy" fetchpriority="high">
+      <div class="sub-hero-shade"></div>
+      <div class="container sub-hero-content reveal"><p class="kicker kicker-light">Realizacje</p><h1>Nasze wykonane prace.</h1><p>Prawdziwe zdjęcia bram, furtek, ogrodzeń i konstrukcji wykonanych dla klientów.</p></div>
+    </section>
+
+    <section class="section portfolio-section">
+      <div class="container">
+        <div class="section-heading reveal"><div><p class="kicker">Galeria</p><h2>Wybierz kategorię i zobacz szczegóły.</h2></div><p>Kliknij zdjęcie, aby otworzyć je w większym podglądzie.</p></div>
+        <div class="gallery-filters reveal" role="group" aria-label="Kategorie realizacji">
+          <button class="filter-button active" type="button" data-filter="all">Wszystkie</button>
+          <button class="filter-button" type="button" data-filter="przesuwne">Przesuwne</button>
+          <button class="filter-button" type="button" data-filter="dwuskrzydlowe">Dwuskrzydłowe</button>
+          <button class="filter-button" type="button" data-filter="furtki">Furtki</button>
+          <button class="filter-button" type="button" data-filter="inne">Inne</button>
+        </div>
+        <div class="portfolio-grid" id="portfolioGrid" aria-live="polite"></div>
+        <div class="load-more-wrap"><button class="button button-dark" id="loadMoreButton" type="button">Pokaż więcej realizacji <span>↓</span></button></div>
+      </div>
+    </section>
+
+    <section class="cta-section"><div class="container cta-card reveal"><div><p class="kicker kicker-light">Masz podobny projekt?</p><h2>Wyślij zdjęcie miejsca montażu.</h2><p>Na podstawie zdjęć i krótkiego opisu łatwiej ustalimy odpowiedni rodzaj bramy oraz zakres prac.</p></div><div class="button-row"><a class="button button-accent" href="kontakt.html">Zapytaj o wycenę <span>↗</span></a><a class="button button-ghost" href="oferta.html">Zobacz ofertę</a></div></div></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid"><div class="footer-brand"><img src="logo.png" alt="Werka Bramy"><p>Bramy, ogrodzenia, furtki i automatyka dopasowane do konkretnej posesji.</p></div><div><h3>Menu</h3><a href="index.html">Start</a><a href="oferta.html">Oferta</a><a href="realizacje.html">Realizacje</a><a href="kontakt.html">Kontakt</a></div><div><h3>Kontakt</h3><a href="https://www.facebook.com/Werkabramy" target="_blank" rel="noopener">Facebook ↗</a><a href="kontakt.html">Zapytaj o wycenę</a></div></div>
+    <div class="container footer-bottom"><span>Werka Bramy © 2026</span><span>Bramy • Ogrodzenia • Automatyka</span></div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+    <button class="lightbox-close" type="button" aria-label="Zamknij podgląd">×</button>
+    <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Poprzednie zdjęcie">←</button>
+    <figure><img id="lightboxImage" src="dwuskrzydlowa-10.webp" alt=""><figcaption id="lightboxCaption"></figcaption></figure>
+    <button class="lightbox-arrow lightbox-next" type="button" aria-label="Następne zdjęcie">→</button>
+  </div>
+  <div class="mobile-actions"><a href="kontakt.html">Wycena</a><a href="oferta.html">Oferta</a></div>
+  <script src="script.js"></script>
+</body>
+</html>
