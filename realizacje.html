@@ -1,65 +1,67 @@
 <!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Realizacje Werka Bramy — zdjęcia wykonanych bram przesuwnych i dwuskrzydłowych, furtek, ogrodzeń oraz elementów stalowych.">
-  <meta name="theme-color" content="#0b0d0d">
-  <meta property="og:title" content="Realizacje | Werka Bramy">
-  <meta property="og:image" content="dwuskrzydlowa-10.webp">
-  <title>Realizacje | Werka Bramy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Realizacje Werka Bramy — bramy przesuwne i dwuskrzydłowe, furtki, ogrodzenia oraz konstrukcje stalowe wykonane na Śląsku.">
+  <meta name="theme-color" content="#071416"><meta property="og:title" content="Realizacje | Werka Bramy"><meta property="og:image" content="hero-premium.webp">
+  <title>Realizacje | Werka Bramy — galeria wykonanych prac</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo.png"><link rel="stylesheet" href="style.css">
 </head>
 <body data-page="realizacje">
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <header class="site-header" id="siteHeader">
     <a class="brand" href="index.html" aria-label="Werka Bramy — strona główna"><img src="logo.png" alt="Werka Bramy"></a>
+    <div class="header-meta"><span class="status-dot"></span> Realizacje na Śląsku</div>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Otwórz menu"><span></span><span></span></button>
-    <nav class="main-nav" id="mainNav" aria-label="Główna nawigacja">
-      <a href="index.html" data-nav="start">Start</a><a href="oferta.html" data-nav="oferta">Oferta</a><a href="realizacje.html" data-nav="realizacje">Realizacje</a><a href="kontakt.html" data-nav="kontakt">Kontakt</a><a class="nav-cta" href="kontakt.html">Bezpłatna wycena <span>↗</span></a>
-    </nav>
+    <nav class="main-nav" id="mainNav" aria-label="Główna nawigacja"><a href="index.html" data-nav="start">Start</a><a href="oferta.html" data-nav="oferta">Oferta</a><a href="realizacje.html" data-nav="realizacje">Realizacje</a><a href="kontakt.html" data-nav="kontakt">Kontakt</a><a class="nav-phone" href="tel:+48531686393">531 686 393</a><a class="nav-cta magnetic" href="kontakt.html">Bezpłatna wycena <span>↗</span></a></nav>
   </header>
 
   <main>
-    <section class="sub-hero gallery-hero">
-      <img src="dwuskrzydlowa-10.webp" alt="Realizacja nowoczesnej bramy" fetchpriority="high">
-      <div class="sub-hero-shade"></div>
-      <div class="container sub-hero-content reveal"><p class="kicker kicker-light">Realizacje</p><h1>Nasze wykonane prace.</h1><p>Prawdziwe zdjęcia bram, furtek, ogrodzeń i konstrukcji wykonanych dla klientów.</p></div>
-    </section>
-
-    <section class="section portfolio-section">
-      <div class="container">
-        <div class="section-heading reveal"><div><p class="kicker">Galeria</p><h2>Wybierz kategorię i zobacz szczegóły.</h2></div><p>Kliknij zdjęcie, aby otworzyć je w większym podglądzie.</p></div>
-        <div class="gallery-filters reveal" role="group" aria-label="Kategorie realizacji">
-          <button class="filter-button active" type="button" data-filter="all">Wszystkie</button>
-          <button class="filter-button" type="button" data-filter="przesuwne">Przesuwne</button>
-          <button class="filter-button" type="button" data-filter="dwuskrzydlowe">Dwuskrzydłowe</button>
-          <button class="filter-button" type="button" data-filter="furtki">Furtki</button>
-          <button class="filter-button" type="button" data-filter="inne">Inne</button>
-        </div>
-        <div class="portfolio-grid" id="portfolioGrid" aria-live="polite"></div>
-        <div class="load-more-wrap"><button class="button button-dark" id="loadMoreButton" type="button">Pokaż więcej realizacji <span>↓</span></button></div>
+    <section class="gallery-title-hero" id="top">
+      <div class="container gallery-title-grid">
+        <div class="reveal"><p class="eyebrow light"><span></span> Portfolio</p><h1>Stal mówi sama<br><em>za siebie.</em></h1></div>
+        <div class="gallery-title-side reveal"><span class="big-index">76+</span><p>wybranych zdjęć prawdziwych realizacji: bram, furtek, ogrodzeń i konstrukcji stalowych.</p><a class="text-link light-link" href="#galeria">Przejdź do galerii <span>↓</span></a></div>
+      </div>
+      <div class="gallery-hero-strip reveal">
+        <div><img src="hero-premium.webp" alt="Brama przesuwna przy nowoczesnym domu" fetchpriority="high"><span>Brama przesuwna</span></div>
+        <div><img src="brama-premium.webp" alt="Brama dwuskrzydłowa przy domu" fetchpriority="high"><span>Brama dwuskrzydłowa</span></div>
+        <div><img src="furtka-premium.webp" alt="Furtka wejściowa" fetchpriority="high"><span>Furtka</span></div>
       </div>
     </section>
 
-    <section class="cta-section"><div class="container cta-card reveal"><div><p class="kicker kicker-light">Masz podobny projekt?</p><h2>Wyślij zdjęcie miejsca montażu.</h2><p>Na podstawie zdjęć i krótkiego opisu łatwiej ustalimy odpowiedni rodzaj bramy oraz zakres prac.</p></div><div class="button-row"><a class="button button-accent" href="kontakt.html">Zapytaj o wycenę <span>↗</span></a><a class="button button-ghost" href="oferta.html">Zobacz ofertę</a></div></div></section>
+    <section class="section gallery-story">
+      <div class="container intro-grid"><div class="section-number reveal">01 — Wybrane projekty</div><div class="intro-main reveal"><p class="eyebrow"><span></span> Różne posesje. Jeden standard.</p><h2>Każdy wjazd wymaga <em>innej odpowiedzi.</em></h2></div><div class="intro-side reveal"><p>W galerii pokazujemy zarówno kompletne fronty posesji, jak i prostsze, funkcjonalne realizacje. Bez katalogowych ujęć udających wykonane prace.</p></div></div>
+      <div class="container case-grid">
+        <article class="case-card case-main reveal"><img src="hero-premium.webp" alt="Premium brama przesuwna" loading="lazy"><div><span>Case 01</span><h3>Nowoczesny front posesji</h3><p>Brama przesuwna • poziomy układ • automatyka</p></div></article>
+        <article class="case-card reveal"><img src="dwuskrzydlowa-38.webp" alt="Brama z ogrodzeniem" loading="lazy"><div><span>Case 02</span><h3>Spójna linia ogrodzenia</h3><p>Brama • furtka • przęsła</p></div></article>
+        <article class="case-card reveal"><img src="przesuwna-15.webp" alt="Brama przesuwna" loading="lazy"><div><span>Case 03</span><h3>Funkcjonalny wjazd</h3><p>Konstrukcja na wymiar</p></div></article>
+      </div>
+    </section>
+
+    <section class="section portfolio-section" id="galeria">
+      <div class="container gallery-toolbar reveal">
+        <div><p class="eyebrow light"><span></span> Pełna galeria</p><h2>Wybierz kategorię.</h2></div>
+        <div class="gallery-filters" role="group" aria-label="Kategorie realizacji">
+          <button class="filter-button active" type="button" data-filter="all">Wszystkie</button><button class="filter-button" type="button" data-filter="przesuwne">Przesuwne</button><button class="filter-button" type="button" data-filter="dwuskrzydlowe">Dwuskrzydłowe</button><button class="filter-button" type="button" data-filter="furtki">Furtki</button><button class="filter-button" type="button" data-filter="inne">Inne</button>
+        </div>
+      </div>
+      <div class="container portfolio-grid" id="portfolioGrid" aria-live="polite"></div>
+      <div class="load-more-wrap"><button class="button button-signal" id="loadMoreButton" type="button">Pokaż więcej realizacji <span>↓</span></button></div>
+    </section>
+
+    <section class="cta-section dark-cta-section"><div class="container cta-premium reveal"><span class="cta-label">Twój projekt</span><h2>Masz podobny wjazd?<br><em>Pokaż nam miejsce.</em></h2><p>Wyślij zdjęcie i orientacyjne wymiary. Podpowiemy, od jakiego rozwiązania warto zacząć.</p><div class="button-row"><a class="button button-signal" href="kontakt.html">Poproś o wycenę <span>↗</span></a><a class="button button-glass" href="https://wa.me/48531686393" target="_blank" rel="noopener">WhatsApp</a></div><div class="cta-stroke" aria-hidden="true">REAL</div></div></section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid"><div class="footer-brand"><img src="logo.png" alt="Werka Bramy"><p>Bramy, ogrodzenia, furtki i automatyka dopasowane do konkretnej posesji.</p></div><div><h3>Menu</h3><a href="index.html">Start</a><a href="oferta.html">Oferta</a><a href="realizacje.html">Realizacje</a><a href="kontakt.html">Kontakt</a></div><div><h3>Kontakt</h3><a href="https://www.facebook.com/Werkabramy" target="_blank" rel="noopener">Facebook ↗</a><a href="kontakt.html">Zapytaj o wycenę</a></div></div>
-    <div class="container footer-bottom"><span>Werka Bramy © 2026</span><span>Bramy • Ogrodzenia • Automatyka</span></div>
+    <div class="container footer-top"><a class="footer-logo" href="index.html"><img src="logo.png" alt="Werka Bramy"></a><p>Bramy, ogrodzenia i automatyka wykonywane na wymiar na Śląsku.</p><a class="footer-call" href="tel:+48531686393"><small>Zadzwoń</small>531 686 393 ↗</a></div>
+    <div class="container footer-grid"><div><h3>Nawigacja</h3><a href="index.html">Start</a><a href="oferta.html">Oferta</a><a href="realizacje.html">Realizacje</a><a href="kontakt.html">Kontakt</a></div><div><h3>Oferta</h3><a href="oferta.html#bramy-przesuwne">Bramy przesuwne</a><a href="oferta.html#bramy-dwuskrzydlowe">Bramy dwuskrzydłowe</a><a href="oferta.html#ogrodzenia">Ogrodzenia</a><a href="oferta.html#automatyka">Automatyka</a></div><div><h3>Kontakt</h3><a href="https://wa.me/48531686393" target="_blank" rel="noopener">WhatsApp ↗</a><a href="https://www.facebook.com/Werkabramy" target="_blank" rel="noopener">Facebook ↗</a><span>Ruda Śląska / Śląsk</span></div></div>
+    <div class="container footer-bottom"><span>© 2026 Werka Bramy</span><span>Projekt • wykonanie • montaż</span><a href="#top">Do góry ↑</a></div>
   </footer>
 
-  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
-    <button class="lightbox-close" type="button" aria-label="Zamknij podgląd">×</button>
-    <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Poprzednie zdjęcie">←</button>
-    <figure><img id="lightboxImage" src="dwuskrzydlowa-10.webp" alt=""><figcaption id="lightboxCaption"></figcaption></figure>
-    <button class="lightbox-arrow lightbox-next" type="button" aria-label="Następne zdjęcie">→</button>
-  </div>
-  <div class="mobile-actions"><a href="kontakt.html">Wycena</a><a href="oferta.html">Oferta</a></div>
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia"><button class="lightbox-close" type="button" aria-label="Zamknij podgląd">×</button><button class="lightbox-arrow lightbox-prev" type="button" aria-label="Poprzednie zdjęcie">←</button><figure><img id="lightboxImage" src="hero-premium.webp" alt=""><figcaption id="lightboxCaption"></figcaption></figure><button class="lightbox-arrow lightbox-next" type="button" aria-label="Następne zdjęcie">→</button></div>
+  <div class="mobile-actions"><a href="tel:+48531686393">Zadzwoń</a><a href="kontakt.html">Bezpłatna wycena</a></div>
   <script src="script.js"></script>
 </body>
 </html>
