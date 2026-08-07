@@ -139,17 +139,17 @@
     {
       key: "przesuwne",
       label: "Brama przesuwna",
-      files: ["hero-premium.webp", "przesuwna-01.webp", "przesuwna-03.webp", "przesuwna-06.webp", "przesuwna-07.webp", "przesuwna-08.webp", "przesuwna-10.webp", "przesuwna-12.webp", "przesuwna-13.webp", "przesuwna-14.webp", "przesuwna-15.webp", "przesuwna-16.webp", "przesuwna-19.webp", "przesuwna-20.webp", "przesuwna-21.webp", "przesuwna-22.webp", "przesuwna-24.webp"]
+      files: ["przesuwna-13.webp", "przesuwna-01.webp", "przesuwna-03.webp", "przesuwna-06.webp", "przesuwna-07.webp", "przesuwna-08.webp", "przesuwna-10.webp", "przesuwna-12.webp", "przesuwna-13.webp", "przesuwna-14.webp", "przesuwna-15.webp", "przesuwna-16.webp", "przesuwna-19.webp", "przesuwna-20.webp", "przesuwna-21.webp", "przesuwna-22.webp", "przesuwna-24.webp"]
     },
     {
       key: "dwuskrzydlowe",
       label: "Brama dwuskrzydłowa",
-      files: ["brama-premium.webp", "dwuskrzydlowa-01.webp", "dwuskrzydlowa-02.webp", "dwuskrzydlowa-03.webp", "dwuskrzydlowa-04.webp", "dwuskrzydlowa-05.webp", "dwuskrzydlowa-06.webp", "dwuskrzydlowa-07.webp", "dwuskrzydlowa-08.webp", "dwuskrzydlowa-10.webp", "dwuskrzydlowa-12.webp", "dwuskrzydlowa-13.webp", "dwuskrzydlowa-16.webp", "dwuskrzydlowa-17.webp", "dwuskrzydlowa-18.webp", "dwuskrzydlowa-20.webp", "dwuskrzydlowa-21.webp", "dwuskrzydlowa-22.webp", "dwuskrzydlowa-23.webp", "dwuskrzydlowa-25.webp", "dwuskrzydlowa-27.webp", "dwuskrzydlowa-28.webp", "dwuskrzydlowa-29.webp", "dwuskrzydlowa-30.webp", "dwuskrzydlowa-31.webp", "dwuskrzydlowa-32.webp", "dwuskrzydlowa-33.webp", "dwuskrzydlowa-34.webp", "dwuskrzydlowa-35.webp", "dwuskrzydlowa-36.webp", "dwuskrzydlowa-38.webp", "dwuskrzydlowa-39.webp", "dwuskrzydlowa-40.webp"]
+      files: ["dwuskrzydlowa-38.webp", "dwuskrzydlowa-01.webp", "dwuskrzydlowa-02.webp", "dwuskrzydlowa-03.webp", "dwuskrzydlowa-04.webp", "dwuskrzydlowa-05.webp", "dwuskrzydlowa-06.webp", "dwuskrzydlowa-07.webp", "dwuskrzydlowa-08.webp", "dwuskrzydlowa-10.webp", "dwuskrzydlowa-12.webp", "dwuskrzydlowa-13.webp", "dwuskrzydlowa-16.webp", "dwuskrzydlowa-17.webp", "dwuskrzydlowa-18.webp", "dwuskrzydlowa-20.webp", "dwuskrzydlowa-21.webp", "dwuskrzydlowa-22.webp", "dwuskrzydlowa-23.webp", "dwuskrzydlowa-25.webp", "dwuskrzydlowa-27.webp", "dwuskrzydlowa-28.webp", "dwuskrzydlowa-29.webp", "dwuskrzydlowa-30.webp", "dwuskrzydlowa-31.webp", "dwuskrzydlowa-32.webp", "dwuskrzydlowa-33.webp", "dwuskrzydlowa-34.webp", "dwuskrzydlowa-35.webp", "dwuskrzydlowa-36.webp", "dwuskrzydlowa-38.webp", "dwuskrzydlowa-39.webp", "dwuskrzydlowa-40.webp"]
     },
     {
       key: "furtki",
       label: "Furtka i ogrodzenie",
-      files: ["furtka-premium.webp", "furtka-01.webp", "furtka-02.webp", "furtka-03.webp", "furtka-04.webp", "furtka-06.webp", "furtka-07.webp", "furtka-08.webp", "furtka-09.webp", "furtka-10.webp", "furtka-11.webp", "furtka-13.webp", "furtka-14.webp"]
+      files: ["furtka-13.webp", "furtka-01.webp", "furtka-02.webp", "furtka-03.webp", "furtka-04.webp", "furtka-06.webp", "furtka-07.webp", "furtka-08.webp", "furtka-09.webp", "furtka-10.webp", "furtka-11.webp", "furtka-13.webp", "furtka-14.webp"]
     },
     {
       key: "inne",
