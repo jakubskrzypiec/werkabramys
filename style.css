@@ -1178,3 +1178,33 @@ body[data-page="start"] .hero-corner-brand{
   .article-content p{font-size:14px}
   .article-content h2{font-size:36px;margin-top:38px}
 }
+
+
+/* === GOLD HERO ACCENT + ARTICLES INDEX === */
+body[data-page="start"] .hero-inner-patch{position:relative}
+body[data-page="start"] .hero-gold-rail{display:block;width:74px;height:3px;margin:0 0 18px;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light),var(--gold));box-shadow:0 0 24px rgba(212,175,55,.18)}
+body[data-page="start"] .hero-gold-text{color:var(--gold-light);text-shadow:0 2px 18px rgba(212,175,55,.12)}
+body[data-page="start"] .hero-meta{border-top-color:rgba(212,175,55,.30)!important}
+.articles-all-link{display:flex;justify-content:flex-end;margin-top:28px}
+.articles-all-link .button{border-color:rgba(212,175,55,.45)}
+.articles-index-hero{background:#09090a;color:#fff;border-bottom:1px solid rgba(212,175,55,.28)}
+.articles-index-hero-inner{padding:82px 0 76px;max-width:980px}
+.articles-index-hero h1{font-size:clamp(56px,7vw,104px);max-width:950px;line-height:.94;text-transform:uppercase}
+.articles-index-hero p:last-child{max-width:740px;margin-top:22px;color:rgba(255,255,255,.62);font-size:14px;line-height:1.8}
+.articles-index-section{background:#f3f3f1}
+.articles-index-intro{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end;margin-bottom:34px}
+.articles-index-intro h2{font-size:clamp(44px,5vw,72px)}
+.articles-index-intro>p{max-width:520px;color:#666c71;font-size:13px;line-height:1.8}
+.articles-index-grid .article-card h2{font-size:31px;margin:12px 0;line-height:1.02}
+@media(max-width:860px){
+  .articles-index-intro{grid-template-columns:1fr;gap:18px}
+  .articles-index-hero-inner{padding:60px 0 58px}
+  .articles-index-hero h1{font-size:56px}
+}
+@media(max-width:580px){
+  body[data-page="start"] .hero-gold-rail{width:56px;height:2px;margin-bottom:14px}
+  .articles-all-link{justify-content:stretch}.articles-all-link .button{width:100%;text-align:center}
+  .articles-index-hero-inner{padding:50px 0 48px}
+  .articles-index-hero h1{font-size:42px}
+  .articles-index-grid .article-card h2{font-size:27px}
+}
