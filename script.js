@@ -137,4 +137,22 @@
     if (e.key === 'ArrowRight') show(lbIndex + 1);
   });
   render();
+
+  const techInfoTitle = document.getElementById("techInfoTitle");
+  const techInfoText = document.getElementById("techInfoText");
+  const techInfoIndex = document.getElementById("techInfoIndex");
+  const techHotspots = document.querySelectorAll(".property-view .hotspot[data-title]");
+  const activateTech = (button) => {
+    if (!button || !techInfoTitle || !techInfoText || !techInfoIndex) return;
+    techHotspots.forEach((item) => item.classList.toggle("is-active", item === button));
+    techInfoIndex.textContent = button.dataset.index || "";
+    techInfoTitle.textContent = button.dataset.title || "";
+    techInfoText.textContent = button.dataset.text || "";
+  };
+  techHotspots.forEach((button) => {
+    button.addEventListener("mouseenter", () => activateTech(button));
+    button.addEventListener("focus", () => activateTech(button));
+    button.addEventListener("click", () => activateTech(button));
+  });
+  if (techHotspots[0]) activateTech(techHotspots[0]);
 })();

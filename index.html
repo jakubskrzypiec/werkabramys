@@ -5,7 +5,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Condensed:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="logo.png"><link rel="stylesheet" href="style.css"></head>
 <body data-page="start">
-<div class="home-intro" aria-hidden="true"><div class="home-intro-inner"><img src="logo-white.png" alt=""><span>bramy • ogrodzenia • automatyka</span></div></div>
+<div class="home-intro" aria-hidden="true">
+  <div class="intro-shutter intro-shutter-left"></div><div class="intro-shutter intro-shutter-right"></div>
+  <div class="home-intro-inner"><div class="intro-line"></div><img src="logo-white.png" alt=""><span>bramy • ogrodzenia • automatyka</span><div class="intro-loader"><i></i></div></div>
+</div>
 <header class="site-header">
   <div class="container header-inner">
     <div class="header-spacer" aria-hidden="true"></div>
@@ -35,9 +38,9 @@
   <div class="hero-stage">
     <div class="hero-media"><img src="hero-day.webp" alt="Grafitowa brama i furtka przy nowoczesnym domu"></div>
     <div class="container hero-inner">
-      <div class="hero-line reveal">Bramy • furtki • ogrodzenia • automatyka</div>
+      <div class="hero-line reveal">Na wymiar • Śląsk • od pomiaru po montaż</div>
       <img class="hero-logo reveal" src="logo-white.png" alt="Werka Bramy">
-      <p class="hero-copy reveal">Pomiar, wykonanie i montaż pod konkretną posesję. Bez katalogowych schematów i zbędnych pośredników.</p>
+      <p class="hero-copy reveal">Bramy, furtki i ogrodzenia wykonywane pod konkretną posesję — solidnie, prosto i z montażem na miejscu.</p>
       <div class="hero-actions reveal"><a class="button light" href="kontakt.html">Bezpłatna wycena</a><a class="button ghost" href="realizacje.html">Zobacz realizacje</a></div>
     </div>
   </div>
@@ -47,6 +50,15 @@
     <div class="hero-meta-item"><strong>Automatyka</strong><span>napęd i zabezpieczenia</span></div>
     <div class="hero-meta-item"><strong>Kontakt</strong><span>531 686 393</span></div>
   </div></div>
+</section>
+
+<section class="reviews-strip" aria-label="Opinie klientów">
+  <div class="container reviews-inner reveal">
+    <div class="reviews-score"><span class="google-g">G</span><div><strong>5,0 / 5</strong><small>Google • 8 opinii</small></div></div>
+    <div class="reviews-stars" aria-label="5 gwiazdek">★★★★★</div>
+    <div class="reviews-quote"><strong>Klienci polecają Werka Bramy</strong><span>rzetelność • szybki termin • staranne wykonanie</span></div>
+    <a class="reviews-link" href="https://www.google.com/search?q=Werka+bramy+Opinie" target="_blank" rel="noopener">Zobacz opinie Google ↗</a>
+  </div>
 </section>
 
 <section class="section manifesto">
@@ -70,24 +82,30 @@
 </section>
 
 <section class="tech-section">
-  <div class="container tech-grid">
-    <div class="property-view reveal" aria-label="Schemat posesji z punktami technicznymi">
-      <img src="posesja-tech.webp" alt="Techniczny widok posesji z domem, bramą i furtką">
-      <button class="hotspot hotspot-gate" type="button" aria-label="Brama"><span>Brama — konstrukcja i sposób otwierania dobrane do wjazdu.</span></button>
-      <button class="hotspot hotspot-furtka" type="button" aria-label="Furtka"><span>Furtka — spójna z bramą i linią ogrodzenia.</span></button>
-      <button class="hotspot hotspot-drive" type="button" aria-label="Napęd"><span>Napęd — dobierany do typu, wymiarów i pracy bramy.</span></button>
-      <button class="hotspot hotspot-control" type="button" aria-label="Zabezpieczenia"><span>Zabezpieczenia — fotokomórki i prawidłowa regulacja systemu.</span></button>
-      <div class="property-caption">Najedź na punkty • schemat posesji</div>
+  <div class="container tech-layout">
+    <div class="tech-info reveal" id="techInfo">
+      <p class="kicker light">Automatyka / układ posesji</p>
+      <span class="tech-info-index" id="techInfoIndex">01</span>
+      <h2 id="techInfoTitle">Brama przesuwna</h2>
+      <p id="techInfoText">Główny wjazd dopasowany do szerokości posesji, miejsca przy ogrodzeniu i sposobu codziennego użytkowania.</p>
+      <div class="tech-info-line"></div>
+      <small>Najedź na punkty na wizualizacji, żeby zobaczyć element.</small>
+      <a class="button light" href="oferta.html#automatyka">Zobacz ofertę</a>
     </div>
-    <div class="tech-copy reveal"><p class="kicker light">Automatyka</p><h2>Cała posesja jako jeden układ.</h2><p>Brama, furtka i automatyka powinny działać jako jeden układ. Najedź na punkty po lewej, żeby zobaczyć najważniejsze elementy takiej realizacji.</p>
-      <div class="tech-specs"><div class="tech-spec"><strong>Napęd</strong><span>dobór do konkretnej bramy</span></div><div class="tech-spec"><strong>Pilot</strong><span>wygodne otwieranie</span></div><div class="tech-spec"><strong>Fotokomórki</strong><span>bezpieczeństwo pracy</span></div><div class="tech-spec"><strong>Regulacja</strong><span>sprawdzenie po montażu</span></div></div>
-      <a class="button light" href="oferta.html#automatyka">Zobacz automatykę</a>
+    <div class="property-view reveal" aria-label="Schemat posesji z punktami technicznymi">
+      <img src="posesja-interactive.png" alt="Widok całej posesji z bramą, furtką i ogrodzeniem">
+      <button class="hotspot hotspot-gate" type="button" data-index="01" data-title="Brama przesuwna" data-text="Główny wjazd dopasowany do szerokości posesji, miejsca przy ogrodzeniu i sposobu codziennego użytkowania." aria-label="Brama przesuwna"></button>
+      <button class="hotspot hotspot-furtka" type="button" data-index="02" data-title="Furtka" data-text="Wejście wykonane w tej samej linii wizualnej co brama i przęsła, z dopasowaniem szerokości i osprzętu." aria-label="Furtka"></button>
+      <button class="hotspot hotspot-drive" type="button" data-index="03" data-title="Napęd bramy" data-text="Automatyka dobierana do konstrukcji i sposobu pracy bramy, z montażem oraz końcową regulacją." aria-label="Napęd bramy"></button>
+      <button class="hotspot hotspot-control" type="button" data-index="04" data-title="Ogrodzenie" data-text="Przęsła i słupki tworzą z bramą jeden uporządkowany front posesji zamiast przypadkowego zestawu elementów." aria-label="Ogrodzenie"></button>
+      <button class="hotspot hotspot-entry" type="button" data-index="05" data-title="Wejście i osprzęt" data-text="W zależności od realizacji wejście może zostać przygotowane pod odpowiedni osprzęt i wygodną obsługę." aria-label="Wejście i osprzęt"></button>
+      <div class="property-caption">Najedź na punkt • pełny układ posesji</div>
     </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container section-title reveal"><div><p class="kicker">Realizacje</p><h2>Prawdziwe zdjęcia wykonanych prac.</h2></div><p>Wybrane kadry pokazują gotowe bramy, furtki i elementy stalowe w rzeczywistych realizacjach.</p></div>
+  <div class="container section-title reveal"><div><p class="kicker">Realizacje</p><h2>Prawdziwe zdjęcia wykonanych prac.</h2></div><p>Na landing page'u zdjęcia są większe i mają jeden, uporządkowany sposób prezentacji.</p></div>
   <div class="container gallery-preview">
     <figure class="photo-card reveal"><img src="home-przesuwna.webp" alt="Brama przesuwna"><figcaption>Brama przesuwna</figcaption></figure>
     <figure class="photo-card reveal"><img src="home-dwuskrzydlowa.webp" alt="Brama dwuskrzydłowa"><figcaption>Brama dwuskrzydłowa</figcaption></figure>
