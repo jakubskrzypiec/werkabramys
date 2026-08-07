@@ -658,3 +658,142 @@ body[data-page="start"] .review-mini-card p{font-size:14px;line-height:1.7;color
   body[data-page="start"] .reviews-wide{grid-template-columns:1fr}
   body[data-page="start"] .review-mini-card{border-left:0;border-top:1px solid #ececec}
 }
+
+/* === PATCH: ONLY USER-REQUESTED CHANGES 2026-08-07 === */
+/* Professional intro without gate animation */
+.pro-intro{
+  position:fixed;inset:0;z-index:9999;pointer-events:none;
+  display:grid;place-items:center;background:#050505;color:#fff;
+  animation:proIntroOut .55s cubic-bezier(.55,0,.2,1) 1.25s forwards;
+}
+.pro-intro-mark{display:grid;place-items:center;gap:15px;animation:proIntroMark .65s cubic-bezier(.2,.8,.2,1) both}
+.pro-intro-mark img{width:min(240px,44vw);filter:drop-shadow(0 12px 30px rgba(0,0,0,.35))}
+.pro-intro-line{display:block;width:min(320px,58vw);height:1px;background:rgba(255,255,255,.16);overflow:hidden;position:relative}
+.pro-intro-line::after{content:"";position:absolute;inset:0;background:#fff;transform:translateX(-101%);animation:proIntroLine .72s cubic-bezier(.4,0,.2,1) .18s forwards}
+.pro-intro-mark small{font-size:9px;font-weight:800;letter-spacing:.24em;color:rgba(255,255,255,.52);text-transform:uppercase}
+@keyframes proIntroMark{from{opacity:0;transform:translateY(14px);filter:blur(5px)}to{opacity:1;transform:none;filter:none}}
+@keyframes proIntroLine{to{transform:translateX(0)}}
+@keyframes proIntroOut{to{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){.pro-intro{display:none}}
+
+/* Same crisp FB + phone icons on every page; WhatsApp header icon removed in HTML */
+.header-actions .icon-link{
+  width:42px;height:42px;border:1px solid rgba(255,255,255,.20);border-radius:0;
+  background:transparent;color:#fff;display:grid;place-items:center;
+  transition:background .18s ease,color .18s ease,border-color .18s ease,transform .18s ease;
+}
+.header-actions .icon-link svg{width:19px;height:19px;display:block;shape-rendering:geometricPrecision}
+.header-actions .icon-link:hover{background:#fff;color:#070708;border-color:#fff;transform:translateY(-1px)}
+
+/* Homepage hero: logo and copy anchored bottom-left, no content changes */
+body[data-page="start"] .hero-stage-patch{min-height:min(88vh,790px)}
+body[data-page="start"] .hero-stage-patch::before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(0deg,rgba(3,5,6,.66) 0%,rgba(3,5,6,.25) 38%,rgba(3,5,6,.04) 72%,transparent 100%),
+             linear-gradient(90deg,rgba(3,5,6,.44) 0%,rgba(3,5,6,.13) 30%,transparent 58%);
+}
+body[data-page="start"] .hero-inner-patch{
+  min-height:min(88vh,790px);width:min(610px,calc(100% - 48px));max-width:610px;
+  margin-left:clamp(24px,5vw,88px);margin-right:0;padding:120px 0 54px;
+  display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;
+}
+body[data-page="start"] .hero-logo-patch{width:min(210px,38vw);margin-bottom:14px}
+body[data-page="start"] .hero-badge{margin-bottom:13px}
+body[data-page="start"] .hero-title{font-size:clamp(44px,5.4vw,82px);line-height:.94;max-width:560px;margin-bottom:12px}
+body[data-page="start"] .hero-copy{font-size:15px;line-height:1.65;max-width:550px;color:rgba(255,255,255,.90)}
+body[data-page="start"] .hero-actions{margin-top:20px}
+
+/* Hotspots aligned to actual elements in posesja-clean.png */
+body[data-page="start"] .property-view-patch{min-height:570px;overflow:hidden;background:#08090a}
+body[data-page="start"] .property-view-patch>img{
+  position:absolute;left:50%;top:50%;width:100%;height:100%;max-width:none;
+  transform:translate(-50%,-50%);object-fit:contain;background:transparent;filter:none;
+}
+body[data-page="start"] .property-view-patch::after{display:none}
+body[data-page="start"] .hotspot{
+  width:28px;height:28px;border-radius:50%;background:#fff;border:1px solid rgba(0,0,0,.18);
+  box-shadow:0 6px 18px rgba(0,0,0,.28);transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+body[data-page="start"] .hotspot::before,body[data-page="start"] .hotspot::after{content:"";position:absolute;left:50%;top:50%;background:#101215;transform:translate(-50%,-50%)}
+body[data-page="start"] .hotspot::before{width:10px;height:2px}body[data-page="start"] .hotspot::after{width:2px;height:10px}
+body[data-page="start"] .hotspot:hover,body[data-page="start"] .hotspot:focus-visible,body[data-page="start"] .hotspot.is-active{transform:translate(-50%,-50%) scale(1.12);background:var(--accent);box-shadow:0 0 0 8px rgba(217,223,77,.16),0 8px 22px rgba(0,0,0,.30)}
+/* large sliding gate / wicket / motor / fence */
+body[data-page="start"] .hotspot-gate{left:34%;top:57%}
+body[data-page="start"] .hotspot-furtka{left:51%;top:60%}
+body[data-page="start"] .hotspot-drive{left:19%;top:58%}
+body[data-page="start"] .hotspot-control{left:79%;top:45%}
+body[data-page="start"] .hotspot-entry{display:none}
+
+/* Proper multicolor Google mark */
+.google-logo-svg{width:56px;height:56px;display:block;flex:0 0 auto}
+.reviews-main-top{display:flex;align-items:center;gap:15px}
+
+/* Homepage realizations: cleaner editorial 2x2 layout */
+body[data-page="start"] .gallery-preview-patch{
+  display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:300px;gap:18px;
+}
+body[data-page="start"] .gallery-preview-patch .photo-card{
+  position:relative;overflow:hidden;margin:0;border:1px solid #d9dad7;border-radius:18px;background:#111;
+  box-shadow:0 14px 30px rgba(0,0,0,.08);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+}
+body[data-page="start"] .gallery-preview-patch .photo-card:nth-child(1){grid-column:span 7;grid-row:auto}
+body[data-page="start"] .gallery-preview-patch .photo-card:nth-child(2){grid-column:span 5;grid-row:auto}
+body[data-page="start"] .gallery-preview-patch .photo-card:nth-child(3){grid-column:span 5;grid-row:auto}
+body[data-page="start"] .gallery-preview-patch .photo-card:nth-child(4){grid-column:span 7;grid-row:auto}
+body[data-page="start"] .gallery-preview-patch .photo-card img{width:100%;height:100%;object-fit:cover;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+body[data-page="start"] .gallery-preview-patch .photo-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,rgba(0,0,0,.62) 100%)}
+body[data-page="start"] .gallery-preview-patch .photo-card figcaption{
+  position:absolute;left:18px;bottom:16px;z-index:2;padding:9px 12px;border-radius:999px;
+  color:#fff;background:rgba(10,10,10,.52);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(8px);
+  font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;
+}
+body[data-page="start"] .gallery-preview-patch .photo-card:hover{transform:translateY(-4px);box-shadow:0 20px 38px rgba(0,0,0,.13);border-color:#bfc0bd}
+body[data-page="start"] .gallery-preview-patch .photo-card:hover img{transform:scale(1.035)}
+
+/* Remove the stray black line from four steps and add only subtle card interaction */
+body[data-page="start"] .process-grid{border:0!important;border-top:0!important;border-left:0!important;gap:18px}
+body[data-page="start"] .process-step{border:1px solid #e5e6e3!important;border-radius:22px;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+body[data-page="start"] .process-step:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(0,0,0,.08);border-color:#c9cac7!important}
+
+/* Requested extra interaction without changing content/layout */
+body[data-page="start"] .offer-card{transition:transform .26s ease,box-shadow .26s ease}
+body[data-page="start"] .offer-card img{transition:transform .48s cubic-bezier(.2,.7,.2,1)}
+body[data-page="start"] .offer-card:hover{transform:translateY(-4px);box-shadow:0 18px 34px rgba(0,0,0,.12)}
+body[data-page="start"] .offer-card:hover img{transform:scale(1.025)}
+body[data-page="start"] .manifesto-point{transition:padding-left .22s ease,background .22s ease}
+body[data-page="start"] .manifesto-point:hover{padding-left:12px;background:#fafafa}
+body[data-page="start"] .review-mini-card{transition:background .2s ease,transform .2s ease}
+body[data-page="start"] .review-mini-card:hover{background:#fafafa;transform:translateY(-2px)}
+
+/* Mobile fixes only for the touched elements */
+@media(max-width:860px){
+  .header-actions{left:14px!important;gap:7px!important}
+  .header-actions .icon-link{width:38px;height:38px}
+  body[data-page="start"] .hero-inner-patch{width:calc(100% - 36px);margin-left:18px;padding:104px 0 42px}
+  body[data-page="start"] .hero-title{font-size:clamp(42px,11vw,62px)}
+  body[data-page="start"] .hero-copy{max-width:520px}
+  body[data-page="start"] .property-view-patch{min-height:470px}
+  body[data-page="start"] .gallery-preview-patch{grid-template-columns:1fr 1fr;grid-auto-rows:250px}
+  body[data-page="start"] .gallery-preview-patch .photo-card:nth-child(n){grid-column:span 1}
+}
+@media(max-width:580px){
+  .pro-intro-mark img{width:180px}.pro-intro-mark small{font-size:7px;letter-spacing:.18em}
+  body[data-page="start"] .hero-stage-patch{min-height:610px}
+  body[data-page="start"] .hero-inner-patch{min-height:610px;padding:100px 0 36px;margin-left:14px;width:calc(100% - 28px)}
+  body[data-page="start"] .hero-logo-patch{width:170px}
+  body[data-page="start"] .hero-badge{font-size:9px;min-height:31px}
+  body[data-page="start"] .hero-title{font-size:44px;max-width:95%}
+  body[data-page="start"] .hero-copy{font-size:13px;max-width:94%}
+  body[data-page="start"] .hero-actions{gap:8px}.hero-actions .button{min-height:46px;padding:0 14px;font-size:9px}
+  body[data-page="start"] .property-view-patch{min-height:350px}
+  body[data-page="start"] .hotspot{width:23px;height:23px}
+  body[data-page="start"] .hotspot-gate{left:34%;top:58%}
+  body[data-page="start"] .hotspot-furtka{left:51%;top:61%}
+  body[data-page="start"] .hotspot-drive{left:19%;top:59%}
+  body[data-page="start"] .hotspot-control{left:79%;top:46%}
+  body[data-page="start"] .gallery-preview-patch{grid-template-columns:1fr;grid-auto-rows:250px}
+  body[data-page="start"] .gallery-preview-patch .photo-card:nth-child(n){grid-column:1}
+  body[data-page="start"] .reviews-wide{grid-template-columns:1fr!important}
+  body[data-page="start"] .review-mini-card{border-left:0!important;border-top:1px solid #ececec}
+  body[data-page="start"] .process-grid{grid-template-columns:1fr!important}
+}
