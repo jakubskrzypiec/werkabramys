@@ -984,3 +984,33 @@ body[data-page="start"] .hero-inner-patch>*:nth-child(5){animation-delay:.48s}
   .cookie-banner-copy strong{font-size:21px}
   .cookie-banner-actions{display:grid;grid-template-columns:1fr}
 }
+
+
+/* === SUBPAGE HERO LOGO – Oferta / Realizacje only === */
+body[data-page="oferta"] .subhero,
+body[data-page="realizacje"] .subhero{position:relative}
+body[data-page="oferta"] .subhero-inner,
+body[data-page="realizacje"] .subhero-inner{position:relative;padding-top:112px}
+body[data-page="oferta"] .subhero-brand-logo,
+body[data-page="realizacje"] .subhero-brand-logo{
+  position:absolute;
+  top:26px;
+  left:0;
+  width:150px;
+  max-width:32vw;
+  height:auto;
+  z-index:2;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.24));
+}
+@media(max-width:860px){
+  body[data-page="oferta"] .subhero-inner,
+  body[data-page="realizacje"] .subhero-inner{padding-top:98px}
+  body[data-page="oferta"] .subhero-brand-logo,
+  body[data-page="realizacje"] .subhero-brand-logo{top:22px;width:132px}
+}
+@media(max-width:580px){
+  body[data-page="oferta"] .subhero-inner,
+  body[data-page="realizacje"] .subhero-inner{padding-top:88px}
+  body[data-page="oferta"] .subhero-brand-logo,
+  body[data-page="realizacje"] .subhero-brand-logo{top:18px;width:118px;max-width:42vw}
+}
