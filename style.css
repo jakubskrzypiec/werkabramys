@@ -797,3 +797,90 @@ body[data-page="start"] .review-mini-card:hover{background:#fafafa;transform:tra
   body[data-page="start"] .review-mini-card{border-left:0!important;border-top:1px solid #ececec}
   body[data-page="start"] .process-grid{grid-template-columns:1fr!important}
 }
+
+/* === FINAL MICROINTERACTIONS + EMAIL FIX === */
+.site-progress{
+  position:fixed;left:0;top:0;width:100%;height:2px;z-index:10000;
+  background:#fff;transform:scaleX(0);transform-origin:left center;
+  pointer-events:none;mix-blend-mode:difference;will-change:transform;
+}
+
+.reveal{transition-delay:var(--reveal-delay,0ms)}
+
+.main-nav>a{position:relative}
+.main-nav>a::after{
+  content:"";position:absolute;left:0;right:0;bottom:9px;height:1px;background:currentColor;
+  transform:scaleX(0);transform-origin:right center;transition:transform .28s cubic-bezier(.2,.7,.2,1);
+}
+.main-nav>a:hover::after,.main-nav>a[aria-current="page"]::after{transform:scaleX(1);transform-origin:left center}
+
+body[data-page="start"] .hero-media img{
+  --hero-x:0px;--hero-y:0px;
+  transform:translate3d(var(--hero-x),var(--hero-y),0) scale(1.025);
+  transition:transform .55s cubic-bezier(.2,.7,.2,1);
+  will-change:transform;
+  animation:heroSettle 1.35s cubic-bezier(.2,.75,.2,1) .15s both;
+}
+@keyframes heroSettle{
+  from{opacity:.72;filter:saturate(.82);transform:translate3d(var(--hero-x),var(--hero-y),0) scale(1.075)}
+  to{opacity:1;filter:saturate(1);transform:translate3d(var(--hero-x),var(--hero-y),0) scale(1.025)}
+}
+
+body[data-page="start"] .hero-inner-patch>*{
+  animation:heroContentIn .72s cubic-bezier(.2,.75,.2,1) both;
+}
+body[data-page="start"] .hero-inner-patch>*:nth-child(1){animation-delay:.18s}
+body[data-page="start"] .hero-inner-patch>*:nth-child(2){animation-delay:.28s}
+body[data-page="start"] .hero-inner-patch>*:nth-child(3){animation-delay:.38s}
+body[data-page="start"] .hero-inner-patch>*:nth-child(4){animation-delay:.48s}
+@keyframes heroContentIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+.button,.header-cta{
+  --mag-x:0px;--mag-y:0px;
+  transform:translate3d(var(--mag-x),var(--mag-y),0);
+  will-change:transform;
+}
+.button::before,.header-cta::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(110deg,transparent 25%,rgba(255,255,255,.20) 48%,transparent 72%);
+  transform:translateX(-130%);transition:transform .55s ease;
+}
+.button:hover::before,.header-cta:hover::before{transform:translateX(130%)}
+.button,.header-cta{position:relative;overflow:hidden}
+
+.hotspot::after{transition:transform .2s ease}
+.hotspot:hover::after,.hotspot.is-active::after{transform:translate(-50%,-50%) rotate(90deg)}
+.hotspot.is-active{animation:hotspotPulse 1.8s ease-in-out infinite}
+@keyframes hotspotPulse{0%,100%{box-shadow:0 0 0 0 rgba(217,223,77,.24),0 8px 22px rgba(0,0,0,.30)}50%{box-shadow:0 0 0 12px rgba(217,223,77,0),0 8px 22px rgba(0,0,0,.30)}}
+
+.offer-card,.photo-card,.process-step,.review-mini-card,.portfolio-item,.service-row,.direct-link{
+  backface-visibility:hidden;
+}
+.footer-col a{transition:color .2s ease,transform .2s ease}
+.footer-col a:hover{transform:translateX(4px)}
+.footer-col a[href^="mailto:"]{overflow-wrap:anywhere}
+.direct-link strong{overflow-wrap:anywhere}
+.direct-link[href^="mailto:"] strong{font-size:20px}
+
+.pro-intro::before{
+  content:"";position:absolute;inset:-25%;pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.07),transparent 38%);
+  animation:introGlow 1.7s ease both;
+}
+@keyframes introGlow{from{transform:scale(.75);opacity:0}45%{opacity:1}to{transform:scale(1.1);opacity:.25}}
+
+@media(max-width:860px){
+  .main-nav>a::after{display:none}
+  body[data-page="start"] .hero-media img{transform:scale(1.02);animation:none}
+  .button,.header-cta{transform:none!important}
+}
+@media(max-width:580px){
+  .direct-link[href^="mailto:"] strong{font-size:16px}
+  .site-progress{height:2px}
+}
+@media(prefers-reduced-motion:reduce){
+  .site-progress{display:none}
+  body[data-page="start"] .hero-media img,body[data-page="start"] .hero-inner-patch>*{animation:none!important;transform:none!important}
+  .hotspot.is-active{animation:none}
+  .button,.header-cta{transform:none!important}
+}

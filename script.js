@@ -29,7 +29,7 @@
     revealEls.forEach(el => el.classList.add('visible'));
   }
 
-  const form = document.querySelector('[data-whatsapp-form]');
+  const form = document.querySelector('[data-email-form]');
   const status = document.getElementById('formStatus');
   form?.addEventListener('submit', e => {
     e.preventDefault();
@@ -53,8 +53,9 @@
       `Opis: ${v('message') || 'do ustalenia'}`, '',
       'Za chwilę dołączę zdjęcie miejsca realizacji.'
     ].join('\n');
-    if (status) status.textContent = 'Gotowe — otwieram WhatsApp.';
-    window.open(`https://wa.me/48531686393?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+    const subject = `Wycena Werka Bramy — ${v('service') || 'zapytanie'} — ${v('city') || 'bez miejscowości'}`;
+    if (status) status.textContent = 'Gotowe — otwieram wiadomość e-mail do Werka Bramy.';
+    window.location.href = `mailto:werkabramy@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msg)}`;
   });
 
   /* Tylko zdjęcia, które dobrze prezentują się w galerii. Odrzucone są kadry z palcami
@@ -155,4 +156,55 @@
     button.addEventListener("click", () => activateTech(button));
   });
   if (techHotspots[0]) activateTech(techHotspots[0]);
+
+  /* FINAL WOW INTERACTIONS */
+  const progress = document.createElement('div');
+  progress.className = 'site-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progress);
+
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const value = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+    progress.style.transform = `scaleX(${value})`;
+  };
+  updateProgress();
+  window.addEventListener('scroll', updateProgress, { passive: true });
+
+  if (!reducedMotion) {
+    const heroStage = document.querySelector('body[data-page="start"] .hero-stage');
+    const heroImage = heroStage?.querySelector('.hero-media img');
+    if (heroStage && heroImage && window.matchMedia('(pointer:fine)').matches) {
+      heroStage.addEventListener('pointermove', (event) => {
+        const rect = heroStage.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width - 0.5) * 10;
+        const y = ((event.clientY - rect.top) / rect.height - 0.5) * 7;
+        heroImage.style.setProperty('--hero-x', `${x}px`);
+        heroImage.style.setProperty('--hero-y', `${y}px`);
+      });
+      heroStage.addEventListener('pointerleave', () => {
+        heroImage.style.setProperty('--hero-x', '0px');
+        heroImage.style.setProperty('--hero-y', '0px');
+      });
+    }
+
+    document.querySelectorAll('.button, .header-cta').forEach((el) => {
+      if (!window.matchMedia('(pointer:fine)').matches) return;
+      el.addEventListener('pointermove', (event) => {
+        const rect = el.getBoundingClientRect();
+        const x = (event.clientX - rect.left - rect.width / 2) * 0.06;
+        const y = (event.clientY - rect.top - rect.height / 2) * 0.08;
+        el.style.setProperty('--mag-x', `${x}px`);
+        el.style.setProperty('--mag-y', `${y}px`);
+      });
+      el.addEventListener('pointerleave', () => {
+        el.style.setProperty('--mag-x', '0px');
+        el.style.setProperty('--mag-y', '0px');
+      });
+    });
+
+    document.querySelectorAll('.offer-grid, .gallery-preview, .process-grid, .reviews-wide, .portfolio-grid').forEach((group) => {
+      [...group.children].forEach((child, index) => child.style.setProperty('--reveal-delay', `${Math.min(index * 70, 280)}ms`));
+    });
+  }
 })();
