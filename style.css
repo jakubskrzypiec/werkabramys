@@ -1055,3 +1055,25 @@ body[data-page="start"] .hero-corner-brand img{
   body[data-page="start"] .hotspot-drive{left:6%;top:58%}
   body[data-page="start"] .hotspot-control{left:91%;top:46%}
 }
+
+/* === LOGO HERO ALIGNMENT FIX ONLY === */
+body[data-page="start"] .hero-corner-brand{
+  left:clamp(24px,5vw,88px);
+  right:auto;
+  transform:none;
+  top:24px;
+  width:auto;
+}
+@media(max-width:860px){
+  body[data-page="start"] .hero-corner-brand{
+    left:18px;
+    top:18px;
+    transform:none;
+  }
+}
+@media(max-width:580px){
+  body[data-page="start"] .hero-corner-brand{
+    left:14px;
+    top:16px;
+  }
+}
