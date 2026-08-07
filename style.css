@@ -276,3 +276,98 @@ h2{font-size:clamp(44px,5vw,76px)}
 
 @media(max-width:1120px){.reviews-inner{grid-template-columns:auto auto 1fr}.reviews-link{grid-column:1/-1;justify-self:start;margin-bottom:18px}.tech-layout{grid-template-columns:1fr}.tech-info{min-height:0;padding:0}.property-view{min-height:560px}}
 @media(max-width:700px){.reviews-inner{grid-template-columns:1fr;gap:14px;padding:20px 0}.reviews-quote{padding-left:0;border-left:0;border-top:1px solid #ddd;padding-top:14px}.reviews-link{grid-column:auto;margin:0}.tech-info-index{font-size:64px}.property-view{min-height:420px}.hotspot{width:22px;height:22px}.hero-media img{object-position:50% center}}
+
+/* === START / PROFESSIONAL GATE INTRO (homepage only) =======================
+   Pure CSS and pointer-events:none: even if animation support fails, this
+   layer can never block navigation or clicks. */
+.gate-intro{
+  position:fixed;
+  inset:0;
+  z-index:999;
+  overflow:hidden;
+  pointer-events:none;
+  background:#07090a;
+  animation:gate-intro-finish .34s ease 1.72s forwards;
+}
+.gate-leaf{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:50.35%;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.04),transparent 12%,transparent 88%,rgba(255,255,255,.035)),
+    repeating-linear-gradient(to bottom,#202428 0 24px,#0b0d0f 24px 32px);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 0 50px rgba(0,0,0,.55);
+  will-change:transform;
+}
+.gate-leaf::before,
+.gate-leaf::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:18px;
+  background:linear-gradient(90deg,#0b0d0f,#30353a 45%,#111417);
+  box-shadow:0 0 0 1px rgba(255,255,255,.06);
+}
+.gate-leaf-left{left:0;animation:gate-open-left 1.05s cubic-bezier(.72,0,.18,1) .62s forwards}
+.gate-leaf-right{right:0;animation:gate-open-right 1.05s cubic-bezier(.72,0,.18,1) .62s forwards}
+.gate-leaf-left::before{left:7%}.gate-leaf-left::after{right:0}
+.gate-leaf-right::before{left:0}.gate-leaf-right::after{right:7%}
+.gate-post{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:8px;
+  background:#3a3f43;
+  opacity:.7;
+}
+.gate-leaf-left .gate-post{right:42%}.gate-leaf-right .gate-post{left:42%}
+.gate-intro::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  bottom:0;
+  width:2px;
+  z-index:3;
+  background:linear-gradient(180deg,transparent 0%,rgba(255,255,255,.55) 18%,rgba(255,255,255,.16) 82%,transparent 100%);
+  transform:translateX(-50%);
+  animation:gate-seam .22s ease 1.06s forwards;
+}
+.gate-intro-track{
+  position:absolute;
+  left:8%;
+  right:8%;
+  bottom:7%;
+  z-index:4;
+  height:2px;
+  background:rgba(255,255,255,.16);
+  box-shadow:0 1px 0 rgba(0,0,0,.9);
+  animation:gate-brand-out .25s ease .56s forwards;
+}
+.gate-intro-brand{
+  position:absolute;
+  z-index:5;
+  left:50%;
+  top:50%;
+  display:grid;
+  place-items:center;
+  gap:12px;
+  transform:translate(-50%,-50%);
+  animation:gate-brand-in .32s cubic-bezier(.2,.8,.2,1) both,gate-brand-out .25s ease .48s forwards;
+}
+.gate-intro-brand img{width:210px;max-width:46vw;filter:drop-shadow(0 8px 22px rgba(0,0,0,.35))}
+.gate-intro-brand span{font:700 9px/1 var(--body);letter-spacing:.22em;color:rgba(255,255,255,.52);white-space:nowrap}
+@keyframes gate-brand-in{from{opacity:0;transform:translate(-50%,-47%) scale(.97)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes gate-brand-out{to{opacity:0}}
+@keyframes gate-open-left{to{transform:translate3d(-101%,0,0)}}
+@keyframes gate-open-right{to{transform:translate3d(101%,0,0)}}
+@keyframes gate-seam{to{opacity:0}}
+@keyframes gate-intro-finish{to{opacity:0;visibility:hidden}}
+@media (prefers-reduced-motion:reduce){.gate-intro{display:none}}
+@media(max-width:700px){
+  .gate-leaf{background:repeating-linear-gradient(to bottom,#202428 0 18px,#0b0d0f 18px 25px)}
+  .gate-intro-brand img{width:170px}
+  .gate-intro-brand span{font-size:7px;letter-spacing:.17em}
+}
