@@ -30,9 +30,7 @@
 
   const currentPage = body.dataset.page;
   document.querySelector(`[data-nav="${currentPage}"]`)?.setAttribute("aria-current", "page");
-  requestAnimationFrame(() => body.classList.add("page-ready"));
 
-  body.classList.add("reveal-ready");
   const reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && !reducedMotion) {
     const observer = new IntersectionObserver((entries, revealObserver) => {
@@ -52,7 +50,7 @@
     let ticking = false;
     const renderParallax = () => {
       parallaxItems.forEach((item) => {
-        const factor = Number(item.dataset.parallax || 0.1);
+        const factor = Number(item.dataset.parallax || 0.05);
         const rect = item.parentElement?.getBoundingClientRect();
         if (!rect || rect.bottom < 0 || rect.top > window.innerHeight) return;
         item.style.transform = `translate3d(0, ${window.scrollY * factor}px, 0)`;
@@ -68,32 +66,10 @@
     renderParallax();
   }
 
-  if (window.matchMedia("(pointer: fine)").matches && !reducedMotion) {
-    document.querySelectorAll(".magnetic").forEach((element) => {
-      element.addEventListener("pointermove", (event) => {
-        const rect = element.getBoundingClientRect();
-        const x = (event.clientX - rect.left - rect.width / 2) * 0.12;
-        const y = (event.clientY - rect.top - rect.height / 2) * 0.16;
-        element.style.transform = `translate(${x}px, ${y}px)`;
-      });
-      element.addEventListener("pointerleave", () => { element.style.transform = ""; });
-    });
-
-    document.querySelectorAll(".tilt-card").forEach((card) => {
-      card.addEventListener("pointermove", (event) => {
-        const rect = card.getBoundingClientRect();
-        const rx = ((event.clientY - rect.top) / rect.height - 0.5) * -5;
-        const ry = ((event.clientX - rect.left) / rect.width - 0.5) * 5;
-        card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
-      });
-      card.addEventListener("pointerleave", () => { card.style.transform = ""; });
-    });
-  }
-
-  document.querySelectorAll(".faq-list details").forEach((detail) => {
+  document.querySelectorAll(".faq-item").forEach((detail) => {
     detail.addEventListener("toggle", () => {
       if (!detail.open) return;
-      document.querySelectorAll(".faq-list details[open]").forEach((other) => {
+      document.querySelectorAll(".faq-item[open]").forEach((other) => {
         if (other !== detail) other.open = false;
       });
     });
@@ -139,22 +115,22 @@
     {
       key: "przesuwne",
       label: "Brama przesuwna",
-      files: ["przesuwna-13.webp", "przesuwna-01.webp", "przesuwna-03.webp", "przesuwna-06.webp", "przesuwna-07.webp", "przesuwna-08.webp", "przesuwna-10.webp", "przesuwna-12.webp", "przesuwna-13.webp", "przesuwna-14.webp", "przesuwna-15.webp", "przesuwna-16.webp", "przesuwna-19.webp", "przesuwna-20.webp", "przesuwna-21.webp", "przesuwna-22.webp", "przesuwna-24.webp"]
+      files: ["przesuwna-03.webp", "przesuwna-06.webp", "przesuwna-10.webp", "przesuwna-13.webp", "przesuwna-14.webp", "przesuwna-16.webp", "przesuwna-19.webp", "przesuwna-20.webp", "przesuwna-21.webp", "przesuwna-22.webp", "przesuwna-24.webp"]
     },
     {
       key: "dwuskrzydlowe",
       label: "Brama dwuskrzydłowa",
-      files: ["dwuskrzydlowa-38.webp", "dwuskrzydlowa-01.webp", "dwuskrzydlowa-02.webp", "dwuskrzydlowa-03.webp", "dwuskrzydlowa-04.webp", "dwuskrzydlowa-05.webp", "dwuskrzydlowa-06.webp", "dwuskrzydlowa-07.webp", "dwuskrzydlowa-08.webp", "dwuskrzydlowa-10.webp", "dwuskrzydlowa-12.webp", "dwuskrzydlowa-13.webp", "dwuskrzydlowa-16.webp", "dwuskrzydlowa-17.webp", "dwuskrzydlowa-18.webp", "dwuskrzydlowa-20.webp", "dwuskrzydlowa-21.webp", "dwuskrzydlowa-22.webp", "dwuskrzydlowa-23.webp", "dwuskrzydlowa-25.webp", "dwuskrzydlowa-27.webp", "dwuskrzydlowa-28.webp", "dwuskrzydlowa-29.webp", "dwuskrzydlowa-30.webp", "dwuskrzydlowa-31.webp", "dwuskrzydlowa-32.webp", "dwuskrzydlowa-33.webp", "dwuskrzydlowa-34.webp", "dwuskrzydlowa-35.webp", "dwuskrzydlowa-36.webp", "dwuskrzydlowa-38.webp", "dwuskrzydlowa-39.webp", "dwuskrzydlowa-40.webp"]
+      files: ["dwuskrzydlowa-01.webp", "dwuskrzydlowa-05.webp", "dwuskrzydlowa-06.webp", "dwuskrzydlowa-07.webp", "dwuskrzydlowa-08.webp", "dwuskrzydlowa-10.webp", "dwuskrzydlowa-18.webp", "dwuskrzydlowa-20.webp", "dwuskrzydlowa-21.webp", "dwuskrzydlowa-22.webp", "dwuskrzydlowa-23.webp", "dwuskrzydlowa-25.webp", "dwuskrzydlowa-27.webp", "dwuskrzydlowa-28.webp", "dwuskrzydlowa-32.webp", "dwuskrzydlowa-38.webp", "dwuskrzydlowa-40.webp"]
     },
     {
       key: "furtki",
       label: "Furtka i ogrodzenie",
-      files: ["furtka-13.webp", "furtka-01.webp", "furtka-02.webp", "furtka-03.webp", "furtka-04.webp", "furtka-06.webp", "furtka-07.webp", "furtka-08.webp", "furtka-09.webp", "furtka-10.webp", "furtka-11.webp", "furtka-13.webp", "furtka-14.webp"]
+      files: ["furtka-03.webp", "furtka-04.webp", "furtka-06.webp", "furtka-07.webp", "furtka-08.webp", "furtka-09.webp", "furtka-10.webp", "furtka-11.webp", "furtka-14.webp"]
     },
     {
       key: "inne",
       label: "Elementy stalowe",
-      files: ["inne-01.webp", "inne-03.webp", "inne-04.webp", "inne-05.webp", "inne-07.webp", "inne-08.webp", "inne-09.webp", "inne-10.webp", "inne-11.webp", "inne-12.webp", "inne-13.webp", "inne-14.webp", "inne-16.webp", "inne-18.webp", "inne-19.webp", "inne-21.webp"]
+      files: ["inne-03.webp", "inne-07.webp", "inne-08.webp", "inne-11.webp", "inne-12.webp", "inne-13.webp", "inne-16.webp", "inne-18.webp", "inne-19.webp"]
     }
   ];
 
