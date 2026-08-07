@@ -24,3 +24,6 @@ exclude:
 
 keep_files:
   - CNAME
+
+url: "https://werkabramy.pl"
+baseurl: ""
