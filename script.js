@@ -208,3 +208,75 @@
     });
   }
 })();
+
+/* cookie preferences + consent-gated Google Maps */
+(() => {
+  const CONSENT_KEY = 'werka_cookie_consent_v1';
+  const getConsent = () => {
+    try { return localStorage.getItem(CONSENT_KEY); } catch { return null; }
+  };
+  const setConsent = (value) => {
+    try { localStorage.setItem(CONSENT_KEY, value); } catch {}
+  };
+
+  const createBanner = () => {
+    if (document.querySelector('.cookie-banner')) return document.querySelector('.cookie-banner');
+    const banner = document.createElement('aside');
+    banner.className = 'cookie-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Ustawienia prywatności i cookies');
+    banner.innerHTML = `
+      <div class="cookie-banner-copy">
+        <strong>Prywatność i cookies</strong>
+        <p>Strona zapisuje wyłącznie wybór ustawień prywatności. Treści zewnętrzne, takie jak Google Maps, są ładowane dopiero po Twojej zgodzie. <a href="polityka-prywatnosci.html">Dowiedz się więcej</a>.</p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button class="button cookie-essential" type="button" data-cookie-choice="essential">Tylko niezbędne</button>
+        <button class="button" type="button" data-cookie-choice="external">Akceptuję</button>
+      </div>`;
+    document.body.appendChild(banner);
+    banner.querySelectorAll('[data-cookie-choice]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const value = button.dataset.cookieChoice;
+        setConsent(value);
+        banner.classList.remove('is-visible');
+        if (value === 'external') enableMaps();
+      });
+    });
+    return banner;
+  };
+
+  const enableMap = (holder) => {
+    if (!holder || holder.classList.contains('has-map')) return;
+    const src = holder.dataset.mapSrc;
+    if (!src) return;
+    const iframe = document.createElement('iframe');
+    iframe.title = 'Mapa Ruda Śląska';
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.src = src;
+    holder.innerHTML = '';
+    holder.appendChild(iframe);
+    holder.classList.add('has-map');
+  };
+
+  function enableMaps() {
+    document.querySelectorAll('[data-cookie-map]').forEach(enableMap);
+  }
+
+  const banner = createBanner();
+  const consent = getConsent();
+  if (consent === 'external') enableMaps();
+  if (!consent) requestAnimationFrame(() => banner.classList.add('is-visible'));
+
+  document.querySelectorAll('[data-cookie-settings]').forEach((button) => {
+    button.addEventListener('click', () => banner.classList.add('is-visible'));
+  });
+  document.querySelectorAll('[data-enable-map]').forEach((button) => {
+    button.addEventListener('click', () => {
+      setConsent('external');
+      banner.classList.remove('is-visible');
+      enableMaps();
+    });
+  });
+})();
