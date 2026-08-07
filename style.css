@@ -884,3 +884,52 @@ body[data-page="start"] .hero-inner-patch>*:nth-child(4){animation-delay:.48s}
   .hotspot.is-active{animation:none}
   .button,.header-cta{transform:none!important}
 }
+
+
+/* === LAST HERO / NAV MICRO FIX === */
+/* one underline only */
+.main-nav>a{border-bottom:0!important}
+
+/* hero photo stays completely still */
+body[data-page="start"] .hero-media img{
+  transform:none!important;
+  animation:none!important;
+  transition:none!important;
+  will-change:auto!important;
+}
+
+/* more logo, less headline */
+body[data-page="start"] .hero-logo-patch{
+  width:min(290px,46vw);
+  margin-bottom:8px;
+}
+body[data-page="start"] .hero-brand-name{
+  margin:0 0 12px;
+  color:rgba(255,255,255,.78);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+}
+body[data-page="start"] .hero-title{
+  font-size:clamp(38px,4.7vw,68px);
+  line-height:.96;
+  max-width:520px;
+  margin-bottom:11px;
+}
+body[data-page="start"] .hero-copy{
+  font-size:14px;
+  max-width:520px;
+}
+body[data-page="start"] .hero-inner-patch>*:nth-child(1){animation-delay:.16s}
+body[data-page="start"] .hero-inner-patch>*:nth-child(2){animation-delay:.24s}
+body[data-page="start"] .hero-inner-patch>*:nth-child(3){animation-delay:.32s}
+body[data-page="start"] .hero-inner-patch>*:nth-child(4){animation-delay:.40s}
+body[data-page="start"] .hero-inner-patch>*:nth-child(5){animation-delay:.48s}
+
+@media(max-width:580px){
+  body[data-page="start"] .hero-logo-patch{width:220px;max-width:68vw}
+  body[data-page="start"] .hero-brand-name{font-size:9px;letter-spacing:.18em;margin-bottom:10px}
+  body[data-page="start"] .hero-title{font-size:38px;max-width:92%}
+  body[data-page="start"] .hero-copy{font-size:13px;max-width:92%}
+}
